@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Eloquent\IBlogService;
 use App\Interfaces\Eloquent\IProductService;
 use App\Interfaces\Eloquent\IUserService;
 use App\Services\Eloquent\BlogService;
@@ -22,7 +23,7 @@ class InterfaceServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(\App\Interfaces\Eloquent\IProductService::class, \App\Services\Eloquent\ProductService::class);
-        $this->app->bind(IProductService::class, ProductService::class);
+        $this->app->bind(IBlogService::class, BlogService::class);
         $this->app->bind(IUserService::class, UserService::class);
     }
 

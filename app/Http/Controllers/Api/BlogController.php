@@ -17,17 +17,17 @@ class BlogController extends Controller
      * Display a listing of the resource.
      */
 
-//    private IBlogService $blogService;
-//
-//    public function __construct(IBlogService $blogService){
-//        $this->blogService = $blogService;
-//    }
+    private IBlogService $blogService;
 
-    private BlogService $blogService;
-
-    public function __construct(BlogService $blogService){
+    public function __construct(IBlogService $blogService){
         $this->blogService = $blogService;
     }
+
+//    private BlogService $blogService;
+//
+//    public function __construct(BlogService $blogService){
+//        $this->blogService = $blogService;
+//    }
 
     public function index()
     {
