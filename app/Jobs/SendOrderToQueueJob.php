@@ -16,7 +16,6 @@ class SendOrderToQueueJob implements ShouldQueue
     protected $orderId;
     protected $productId;
     protected $quantity;
-
     protected $status;
 
 
