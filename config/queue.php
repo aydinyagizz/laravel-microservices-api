@@ -71,6 +71,25 @@ return [
             'after_commit' => false,
         ],
 
+        'rabbitmq' => [
+            'driver' => 'rabbitmq',
+            'host' => env('RABBITMQ_HOST', '127.0.0.1'),
+            'port' => env('RABBITMQ_PORT', 5672),
+            'user' => env('RABBITMQ_USER', 'guest'),
+            'password' => env('RABBITMQ_PASSWORD', 'guest'),
+            'vhost' => env('RABBITMQ_VHOST', '/'),
+            'queue' => 'default', // Kuyruğun adı
+            'exchange' => env('RABBITMQ_EXCHANGE', 'default_exchange'),
+            'exchange_type' => env('RABBITMQ_EXCHANGE_TYPE', 'direct'),
+            'persistent' => true, // Mesajların kalıcı olması
+            'queues' => [
+                'default' => [
+                    'queue' => 'default',
+                    'routing_key' => 'default',
+                ],
+            ],
+        ],
+
     ],
 
     /*

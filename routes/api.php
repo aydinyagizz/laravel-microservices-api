@@ -33,6 +33,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum', 'api'],], funct
     Route::get('/user', [\App\Http\Controllers\Api\UserController::class, 'index']);
     Route::post('/user', [\App\Http\Controllers\Api\UserController::class, 'create']);
 
+    Route::post('/orders', [\App\Http\Controllers\Api\OrderController::class, 'create']);
 }
 );
 

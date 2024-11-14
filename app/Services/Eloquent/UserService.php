@@ -5,6 +5,7 @@ namespace App\Services\Eloquent;
 use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserService;
 use App\Repositories\Classes\UserRepository;
+use App\Jobs\SendWelcomeEmailJob;
 
 class UserService implements IUserService
 {
@@ -29,6 +30,8 @@ class UserService implements IUserService
     {
         $user = $this->userRepository->create($name, $email, $password);
         if ($user) {
+            // Kullanıcıya hoş geldin e-postası göndermek için job’a ekleme
+            SendWelcomeEmailJob::dispatch($user);
             return new ServiceResponse(true, "Created user", $user, 200);
         }
         return new ServiceResponse(false, "Created user failed", null, 400);

@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Interfaces\Eloquent\IBlogService;
+use App\Interfaces\Eloquent\IOrderService;
 use App\Interfaces\Eloquent\IProductService;
 use App\Interfaces\Eloquent\IUserService;
 use App\Services\Eloquent\BlogService;
+use App\Services\Eloquent\OrderService;
 use App\Services\Eloquent\ProductService;
 use App\Services\Eloquent\UserService;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +27,7 @@ class InterfaceServiceProvider extends ServiceProvider
         $this->app->bind(\App\Interfaces\Eloquent\IProductService::class, \App\Services\Eloquent\ProductService::class);
         $this->app->bind(IBlogService::class, BlogService::class);
         $this->app->bind(IUserService::class, UserService::class);
+        $this->app->bind(IOrderService::class, OrderService::class);
     }
 
 
