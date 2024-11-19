@@ -34,6 +34,11 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:sanctum', 'api'],], funct
     Route::post('/user', [\App\Http\Controllers\Api\UserController::class, 'create']);
 
     Route::post('/orders', [\App\Http\Controllers\Api\OrderController::class, 'create']);
+
+    Route::get('/customer', [\App\Http\Controllers\Api\CustomerController::class, 'index']);
+    Route::post('/customer', [\App\Http\Controllers\Api\CustomerController::class, 'store']);
+    Route::put('/customer/{id}', [\App\Http\Controllers\Api\CustomerController::class, 'update']);
+    Route::delete('/customer', [\App\Http\Controllers\Api\CustomerController::class, 'destroy']);
 }
 );
 
